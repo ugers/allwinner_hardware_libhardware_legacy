@@ -28,6 +28,30 @@ ifdef WIFI_DRIVER_FW_PATH_PARAM
 LOCAL_CFLAGS += -DWIFI_DRIVER_FW_PATH_PARAM=\"$(WIFI_DRIVER_FW_PATH_PARAM)\"
 endif
 
+# realtek usb wifi module-8188cus/8192cu
+ifeq ($(SW_BOARD_USR_WIFI), rtl8192cu)
+LOCAL_CFLAGS += -DRTL_8192CU_WIFI_USED
+LOCAL_CFLAGS += -DRTL_WIFI_VENDOR
+endif
+
+# realtek usb wifi module-new
+ifeq ($(SW_BOARD_USR_WIFI), rtl8188eu)
+LOCAL_CFLAGS += -DRTL_8188EU_WIFI_USED
+LOCAL_CFLAGS += -DRTL_WIFI_VENDOR
+endif
+
+# realtek sdio wifi+bt module
+ifeq ($(SW_BOARD_USR_WIFI), rtl8723as)
+LOCAL_CFLAGS += -DRTL_8723AS_WIFI_USED
+LOCAL_CFLAGS += -DRTL_WIFI_VENDOR
+endif
+
+# realtek sdio wifi module
+ifeq ($(SW_BOARD_USR_WIFI), rtl8189es)
+LOCAL_CFLAGS += -DRTL_8189ES_WIFI_USED
+LOCAL_CFLAGS += -DRTL_WIFI_VENDOR
+endif
+
 LOCAL_SRC_FILES += wifi/wifi.c
 
 LOCAL_SHARED_LIBRARIES += libnetutils

@@ -61,7 +61,9 @@ enum audio_source {
     AUDIO_SOURCE_CAMCORDER = 5,
     AUDIO_SOURCE_VOICE_RECOGNITION = 6,
     AUDIO_SOURCE_VOICE_COMMUNICATION = 7,
-    AUDIO_SOURCE_MAX = AUDIO_SOURCE_VOICE_COMMUNICATION,
+    
+    AUDIO_SOURCE_AF = 9,
+    AUDIO_SOURCE_MAX = AUDIO_SOURCE_AF,
 
     AUDIO_SOURCE_LIST_END  // must be last - used to validate audio source type
 };
@@ -262,11 +264,12 @@ public:
         DEVICE_IN_AUX_DIGITAL = 0x200000,
         DEVICE_IN_VOICE_CALL = 0x400000,
         DEVICE_IN_BACK_MIC = 0x800000,
+        DEVICE_IN_AF       = 0x1000000,
         DEVICE_IN_DEFAULT = 0x80000000,
 
         DEVICE_IN_ALL = (DEVICE_IN_COMMUNICATION | DEVICE_IN_AMBIENT | DEVICE_IN_BUILTIN_MIC |
                 DEVICE_IN_BLUETOOTH_SCO_HEADSET | DEVICE_IN_WIRED_HEADSET | DEVICE_IN_AUX_DIGITAL |
-                DEVICE_IN_VOICE_CALL | DEVICE_IN_BACK_MIC | DEVICE_IN_DEFAULT)
+                DEVICE_IN_VOICE_CALL | DEVICE_IN_BACK_MIC | DEVICE_IN_AF | DEVICE_IN_DEFAULT)
     };
 
     // request to open a direct output with getOutput() (by opposition to sharing an output with other AudioTracks)
